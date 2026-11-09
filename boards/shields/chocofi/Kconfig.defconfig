@@ -3,9 +3,13 @@
 if SHIELD_CHOCOFI_LEFT
 config ZMK_KEYBOARD_NAME
     default "Chocofi"
-
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
+endif
+
+if SHIELD_CHOCOFI_RIGHT
+config ZMK_KEYBOARD_NAME
+    default "Chocofi"
 endif
 
 if SHIELD_CHOCOFI_CENTRAL_DONGLE
