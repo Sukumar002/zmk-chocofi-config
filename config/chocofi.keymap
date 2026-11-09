@@ -1,0 +1,262 @@
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/bt.h>
+
+#include <behaviors.dtsi>
+
+#include "zmk-helpers/helper.h"
+#include "keys/36.h"
+
+
+// global
+#define QUICK_TAP_MS 150
+#define TAPPING_TERM_MS 200
+#define PRIOR_IDLE_MS 150
+
+// layers
+#define BASE 0
+#define NUM 1
+#define SYM 2
+#define FN 3
+#define NAV 4
+
+// redefined keycodes
+#define _LWIN_    &kp LEFT_WIN
+#define _RALT_    &kp RIGHT_ALT
+#define _SPC_     &kp SPACE
+#define _RET_     &kp RETURN 
+#define _CUT_     &kp LG(X)
+#define _COPY_    &kp LG(C)
+#define _PASTE_   &kp LG(V)
+
+#define _MO_NUM_ &mo NUMBER
+
+#define OUTTOG   &out OUT_TOG // toggle keyboard output bluetooth/usb
+#define ___      &trans      //  transparent
+#define _x_      &none
+
+#define MEH LC(LS(LALT))
+
+// layer-taps: same feel as the HRMs (balanced + quick-tap repeat)
+&lt {
+    flavor = "balanced";
+    quick-tap-ms = <QUICK_TAP_MS>;
+};
+
+// tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
+ZMK_MOD_MORPH(smart_shift,
+    bindings = <&sk LSHFT>, <&caps_word>;
+    mods = <(MOD_LSFT)>;
+)
+
+/* left-hand HRMs */
+ZMK_BEHAVIOR(hml, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    require-prior-idle-ms = <PRIOR_IDLE_MS>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <RIGHT_KEYS THUMB_KEYS>;
+    hold-trigger-on-release;
+)
+
+/* right-hand HRMs */
+ZMK_BEHAVIOR(hmr, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    require-prior-idle-ms = <PRIOR_IDLE_MS>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <LEFT_KEYS THUMB_KEYS>;
+    hold-trigger-on-release;
+)
+
+/* left-hand HRM shift */
+ZMK_BEHAVIOR(hml_s, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <175>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <75>;        // shift is used mid-flow: shorter guard
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <RIGHT_KEYS THUMB_KEYS>;
+    // hold-trigger-on-release;             // delay positional check until key-release
+)
+
+/* right-hand HRM shift */
+ZMK_BEHAVIOR(hmr_s, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <175>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <75>;        // shift is used mid-flow: shorter guard
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <LEFT_KEYS THUMB_KEYS>;
+    // hold-trigger-on-release;             // delay positional check until key-release
+)
+
+
+/ {
+  chosen {
+    zmk,matrix_transform = &five_column_transform;
+  };
+};
+/ {
+  combos {
+      compatible = "zmk,combos";
+      iu_backspace_combo {
+        timeout-ms = <50>; // Adjust as needed
+        bindings = <&kp COLON>; // Action: Backspace
+        key-positions = <16 17>;
+        layers = < BASE >;
+      };
+      jk_colon_combo {
+        timeout-ms = <50>; // Adjust as needed
+        bindings = <&smart_shift>; // Action: Backspace
+        key-positions = <12 13>;
+        layers = < BASE >;
+      };
+
+  };
+  behaviors {
+    hm: homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      flavor = "balanced";
+      tapping-term-ms = <280>;
+      quick-tap-ms = <QUICK_TAP_MS>; 
+      bindings = <&kp>, <&kp>;
+      // label = "HOMEROW_MODS";
+      #binding-cells = <2>;
+      // hold-trigger-key-positions = <TRIGGER_POS>;
+      hold-trigger-on-release;
+
+    };
+    SBD: S_BSPC_DEL {
+         compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    oneshot_esc: oneshot {
+          compatible = "zmk,behavior-oneshot";
+          label = "OneShot ESC";
+          #binding-cells = <0>;
+      };
+  };
+
+};
+
+/ {
+  keymap {
+    compatible = "zmk,keymap";
+    base_layer {
+      display-name = "BASE";
+      bindings = <
+        // ╭──────────────────────────────────────────────────────────────[...]
+        // │     Q     │     W     │     E     │    R      │     T     │   │     Y     │     U    YM │     I     │     O     │     P     │
+              &lt FN Q       &kp W       &kp E      &kp R        &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
+        // ├────────────┼────────────┼────────────┼────────────┼──────────[...]
+        // │     A     │     S     │     D     │     F     │     G     │   │     H     │     J     │     K     │     L     │     '     │
+            &hml_s LSHIFT A  &hml LCTRL S  &hml LALT D  &hml LGUI F  &lt NUM G      &kp H     &hmr RGUI J   &hmr RALT K    &hmr RCTRL L   &hmr_s RSHIFT SEMI
+        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├[...]
+        // │     Z     │     X     │     C     │     V     │     B     │   │     N     │     M     │    ,/;    │    ./:    │     /     │
+               &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M     &kp COMMA     &kp DOT      &kp FSLH
+        // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰[...]
+                                     &kp LSHIFT  &lt NAV TAB  &hm MEH SPACE         _RET_    &lt SYM ESC    &SBD 
+        //                         │                                   │   │                                   │
+        //                         ╰───────────────────────────────────╯   ╰────────────────[...]
+      >;
+    };
+    number_layer {
+      display-name = "NUM";
+      bindings = <
+        // ╭───────────────────────────────────────────────────────────╮   ╭[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+                _x_         _x_         _x_         _x_         _x_             ___        &kp N7       &kp N8       &kp N9        _x_
+        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+                ___         ___         ___         ___         ___             ___        &kp N4       &kp N5       &kp N6        _x_
+        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+                _x_         _x_         _x_         _x_         _x_            &kp N0       &kp N1       &kp N2       &kp N3        _x_
+        // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰[...]
+                                        _x_         _x_         ___             ___         ___         ___ 
+        //                         │                                   │   │                                   │
+        //                         ╰───────────────────────────────────╯   ╰────────────────[...]
+      >;
+    };
+    symbol_layer {
+      display-name = "SYM";
+      bindings = <
+        // ╭───────────────────────────────────────────────────────────╮   ╭[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+              &kp EXCL     &kp AT     &kp HASH    &kp DLLR   &kp PRCNT          ___      &kp CARET    &kp AMPS    &kp STAR    &kp NON_US_BACKSLASH 
+        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+                ___         ___         ___         ___         ___           ___ &kp EQUAL   &kp LPAR   &kp RPAR              &kp APOS
+        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │ {, <S>[   │  {, <S>[  │     _     │     _     │
+                _x_         _x_         _x_         _x_         _x_          ___ &kp MINUS    &kp LBKT     &kp RBKT              &kp BSLH 
+        // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰[...]
+                                        _x_         _x_         _x_             _x_         _x_         _x_
+        //                         │                                   │   │                                   │
+        //                         ╰───────────────────────────────────╯   ╰────────────────[...]
+      >;
+    };
+
+    fn {
+      display-name = "FN";
+      bindings = <
+        // ╭───────────────────────────────────────────────────────────╮   ╭[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+              &sl BASE  &out OUT_USB &out OUT_BLE   _x_     &bt BT_CLR        &kp F10      &kp F7      &kp F8      &kp F9  &kp C_AL_LOCK
+        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &kp F11      &kp F4       &kp F5       &kp F6     _x_
+        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │           │           │     _     │     _     │
+              &bootloader    _x_         _x_         _x_        _x_            &kp F12      &kp F1       &kp F2     &kp F3       _x_
+        // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰[...]
+                                        ___         ___         ___             ___         ___         ___ 
+        //                         │                                   │   │                                   │
+        //                         ╰───────────────────────────────────╯   ╰────────────────[...]
+      >;
+    };
+    navigation_layer {
+      display-name = "NAV";
+      bindings = <
+        // ╭───────────────────────────────────────────────────────────╮   ╭[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │   MUTE    │ VOL_DOWN  │  VOL_UP   │ PREV_SONG │ NEXT_SONG │
+                _x_         _x_         _x_         _x_         _x_        &kp C_MUTE   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV   &kp C_NEXT
+        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+               &kp CAPS      ___         ___         ___         ___           &kp LEFT    &kp DOWN     &kp UP    &kp RIGHT      _x_
+        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├[...]
+        // │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+                _x_         _CUT_      _COPY_     _PASTE_       _x_             _x_         _x_         _x_         _x_         _x_
+        // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰[...]
+                                        _x_         _x_         ___             ___         ___         ___
+        //                         │                                   │   │                                   │
+        //                         ╰───────────────────────────────────╯   ╰────────────────[...]
+      >;
+    };
+  };
+};
+
+//                                  Template for new layers all keys are transparent
+//      ╭───────────────────────────────────────────────────────────╮   ╭[...]
+//      │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+//           ___          ___         ___         ___         ___             ___         ___         ___         ___         ___
+//      ├───────────┼───────────┼───────────┼───────────┼───────────┤   ╭[...]
+//      │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+//           ___         ___         ___         ___         ___             ___         ___         ___         ___         ___
+//      ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├[...]
+//      │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
+//           ___         ___         ___         ___         ___             ___         ___         ___         ___         ___
+//      ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰[...]
+//                                   ___         ___         ___            ___         ___         ___
+//                              │                                   │   │                                   │
+//                              ╰───────────────────────────────────╯   ╰────────────────[...]
+//
+
+
+
+// vim:ft=cpp
