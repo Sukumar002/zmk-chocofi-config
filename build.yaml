@@ -1,8 +1,8 @@
 ---
 include:
   - board: nice_nano//zmk
-    shield: corne_left nice_view_adapter nice_view_gem
+    shield: chocofi_left nice_view_adapter nice_view_gem
   - board: nice_nano//zmk
-    shield: corne_right nice_view_adapter nice_epaper
+    shield: chocofi_right nice_view_adapter nice_epaper
   - board: nice_nano//zmk
     shield: settings_reset
