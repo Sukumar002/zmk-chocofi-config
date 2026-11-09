@@ -17,3 +17,16 @@
 };
 
 /delete-node/ &kscan0;
+
+/* ZMK Studio RPC transport over the USB CDC ACM interface. */
+/ {
+    chosen {
+        zmk,studio-rpc-uart = &snippet_studio_rpc_usb_uart;
+    };
+};
+
+&zephyr_udc0 {
+    snippet_studio_rpc_usb_uart: snippet_studio_rpc_usb_uart {
+        compatible = "zephyr,cdc-acm-uart";
+    };
+};
