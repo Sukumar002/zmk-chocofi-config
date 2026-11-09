@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: MIT */
 #include "chocofi.dtsi"
 
-&five_column_transform {
+&default_transform {
     col-offset = <6>;
 };
 
