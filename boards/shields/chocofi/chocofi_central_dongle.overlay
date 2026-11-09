@@ -1,0 +1,32 @@
+/* SPDX-License-Identifier: MIT */
+#include "chocofi.dtsi"
+
+/* The USB dongle has no local key matrix. It only routes split input. */
+/ {
+    chosen {
+        /delete-property/ zephyr,display;
+        zmk,kscan = &mock_kscan;
+    };
+
+    mock_kscan: kscan1 {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+};
+
+/delete-node/ &kscan0;
+
+/* ZMK Studio RPC transport over the USB CDC ACM interface. */
+/ {
+    chosen {
+        zmk,studio-rpc-uart = &snippet_studio_rpc_usb_uart;
+    };
+};
+
+&zephyr_udc0 {
+    snippet_studio_rpc_usb_uart: snippet_studio_rpc_usb_uart {
+        compatible = "zephyr,cdc-acm-uart";
+    };
+};
