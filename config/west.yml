@@ -2,16 +2,20 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: sukumar
+      url-base: https://github.com/Sukumar002
     - name: urob
       url-base: https://github.com/urob
 
   projects:
+    # Hana-compatible ZMK fork provides the layout-shift behavior used in Stage 1.
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: sukumar
+      revision: project/universal-dongle-oled-status
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
       revision: main
+
   self:
     path: config
