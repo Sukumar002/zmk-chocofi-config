@@ -36,6 +36,12 @@ ZMK_MOD_MORPH(smart_shift,
     mods = <(MOD_LSFT)>;
 )
 
+/ {
+    chosen {
+        zmk,matrix-transform = &five_column_transform;
+    };
+};
+
 /* GUI <-> Alt mapping: inactive = macOS, active = Windows. */
 &tog_ls {
     layout-maps = <&layout_shift_map_gui_alt>;
