@@ -1,8 +1,21 @@
 ---
 include:
+  # Existing standalone split builds retained as regression coverage.
   - board: nice_nano//zmk
     shield: chocofi_left nice_view_adapter nice_view_gem
   - board: nice_nano//zmk
     shield: chocofi_right nice_view_adapter nice_epaper
+
+  # Stage 2: both halves become peripherals of the central USB dongle.
+  - board: nice_nano//zmk
+    shield: chocofi_peripheral_left nice_view_adapter nice_view_gem
+    artifact-name: chocofi_left_peripheral
+  - board: nice_nano//zmk
+    shield: chocofi_peripheral_right nice_view_adapter nice_epaper
+    artifact-name: chocofi_right_peripheral
+  - board: nice_nano//zmk
+    shield: chocofi_central_dongle
+    artifact-name: chocofi_central_dongle
+
   - board: nice_nano//zmk
     shield: settings_reset
