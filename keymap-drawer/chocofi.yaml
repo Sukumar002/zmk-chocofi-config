@@ -1,4 +1,4 @@
-layout: {zmk_keyboard: chocofi, layout_name: five_column_transform}
+layout: {zmk_keyboard: chocofi, layout_name: default_transform}
 layers:
   BASE:
   - {t: Q, h: SET}
