@@ -38,7 +38,7 @@ ZMK_MOD_MORPH(smart_shift,
 
 / {
     chosen {
-        zmk,matrix-transform = &five_column_transform;
+        zmk,matrix-transform = &default_transform;
     };
 };
 
