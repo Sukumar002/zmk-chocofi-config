@@ -131,10 +131,10 @@ ZMK_MOD_MORPH(smart_shift,
         nav_layer {
             display-name = "NAV";
             bindings = <
-                _x_   _x_   _x_   _x_   _x_       &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV &kp C_NEXT
-                &kp CAPS ___   ___   ___   ___     &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT   _x_
-                _x_   _CUT_ _COPY_ _PASTE_ _x_    _x_          _x_          _x_          _x_         _x_
-                                      _x_   _x_   ___          ___          ___          ___
+                ___   ___   ___   ___   ___       &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV &kp C_NEXT
+                &kp CAPS ___   ___   ___   ___     &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT   ___
+                ___   _CUT_ _COPY_ _PASTE_ ___     ___          ___          ___          ___         ___
+                                      ___   ___   ___          ___          ___          ___
             >;
         };
 
@@ -152,9 +152,9 @@ ZMK_MOD_MORPH(smart_shift,
         mouse_layer {
             display-name = "MOUSE";
             bindings = <
-                _x_ _x_ _x_ _x_ _x_       &msc SCRL_LEFT &msc SCRL_UP &mmv MOVE_UP &msc SCRL_DOWN &msc SCRL_RIGHT
-                &mkp LCLK &mkp MCLK &mkp RCLK _x_ _x_  _x_ &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT _x_
-                _x_ _x_ _x_ _x_ _x_       _x_ _x_ _x_ _x_ _x_
+                ___ ___ ___ ___ ___       &msc SCRL_LEFT &msc SCRL_UP &mmv MOVE_UP &msc SCRL_DOWN &msc SCRL_RIGHT
+                &mkp LCLK &mkp MCLK &mkp RCLK ___ ___  ___ &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT ___
+                ___ ___ ___ ___ ___       ___ ___ ___ ___ ___
                                       ___ ___ ___ ___ ___ ___
             >;
         };
