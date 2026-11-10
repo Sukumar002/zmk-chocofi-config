@@ -18,6 +18,16 @@
 
 /delete-node/ &kscan0;
 
+/*
+ * chocofi.dtsi provides a 128x32 OLED for the ordinary Chocofi shield.
+ * Central-dongle variants provide their own display node (128x32 or 128x64).
+ * Disable the inherited node so only one SSD1306 device is instantiated at
+ * I2C address 0x3c; otherwise both display instances can contend for the panel.
+ */
+&oled {
+    status = "disabled";
+};
+
 /* Remove the legacy transform selected by the board/shield defaults. */
 &{/chosen} {
     /delete-property/ zmk,matrix-transform;
