@@ -2,7 +2,7 @@
 #include "chocofi.dtsi"
 
 /* The USB dongle has no local key matrix; it only routes split input. */
- / {
+/ {
     chosen {
         /delete-property/ zephyr,display;
         zmk,kscan = &mock_kscan;
