@@ -5,7 +5,6 @@
 / {
     chosen {
         /delete-property/ zephyr,display;
-        /delete-property/ zmk,matrix-transform;
         zmk,kscan = &mock_kscan;
     };
 
@@ -18,3 +17,8 @@
 };
 
 /delete-node/ &kscan0;
+
+/* Remove the legacy transform selected by the board/shield defaults. */
+&{/chosen} {
+    /delete-property/ zmk,matrix-transform;
+};
