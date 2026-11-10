@@ -3,10 +3,12 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "chocofi-layouts.dtsi"
 
 / {
     chosen {
         zephyr,display = &oled;
+        zmk,physical-layout = &default_layout;
         zmk,kscan = &kscan0;
     };
 
