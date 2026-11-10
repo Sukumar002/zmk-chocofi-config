@@ -1,5 +1,6 @@
 #define DT_DRV_COMPAT zmk_behavior_oled_brightness
 
+#include <string.h>
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/display.h>
