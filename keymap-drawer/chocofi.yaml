@@ -31,11 +31,11 @@ layers:
   - ','
   - .
   - /
-  - $$mdi:apple-keyboard-shift$$
-  - {t: '$$mdi:keyboard-tab$$', h: MOUSE}
+  - {t: Esc, h: SET}
+  - {t: '$$mdi:keyboard-tab$$', h: '$$mdi:apple-keyboard-command$$'}
+  - {t: '$$mdi:keyboard-tab$$', h: NUM}
+  - {t: ⮐, h: NAV}
   - {t: '$$mdi:keyboard-space$$', h: '$$mdi:apple-keyboard-command$$'}
-  - {t: ⮐, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: Esc, h: NUM}
   - {t: BSPC, s: DEL}
   NUM:
   - F1
@@ -70,9 +70,9 @@ layers:
   - ''''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   NAV:
   - {t: ▽, type: trans}
@@ -180,7 +180,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
