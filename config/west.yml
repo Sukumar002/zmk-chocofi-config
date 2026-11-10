@@ -21,7 +21,7 @@ manifest:
     # Shared Hana/Chocofi central-dongle OLED status implementation.
     - name: zmk-dongle-display
       remote: sukumar
-      revision: f7e043d3b579a231fa192ebb2bf61ada2c03fb73
+      revision: 5ee2d8a63736febdb3ac2bc8cf0c650826dd58de
     # Dedicated Pro Micro OLED hardware overlays for 128x32 / 128x64 panels.
     - name: zmk-oled-adapter
       remote: mctechnology17
