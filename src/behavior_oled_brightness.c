@@ -11,11 +11,14 @@
 #include <zmk/behavior.h>
 
 #define OLED_CONTRAST_DEFAULT 128
-#define OLED_CONTRAST_STEP 32
 
+static const uint8_t oled_contrast_levels[] = {
+    0, 32, 64, 96, 128, 160, 192, 224, 255
+};
 static uint8_t oled_contrast = OLED_CONTRAST_DEFAULT;
 
-#if IS_ENABLED(CONFIG_ZMK_DISPLAY) &&     (!IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL))
+#if IS_ENABLED(CONFIG_ZMK_DISPLAY) && \
+    (!IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL))
 static int apply_oled_contrast(void) {
     const struct device *display = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
     if (!device_is_ready(display)) {
@@ -78,15 +81,22 @@ static int oled_brightness_pressed(struct zmk_behavior_binding *binding,
         return -EINVAL;
     }
 
-    if (binding->param1 == 1) {
-        oled_contrast = (oled_contrast > 255 - OLED_CONTRAST_STEP)
-                            ? 255
-                            : oled_contrast + OLED_CONTRAST_STEP;
-    } else {
-        oled_contrast = (oled_contrast < OLED_CONTRAST_STEP)
-                            ? 0
-                            : oled_contrast - OLED_CONTRAST_STEP;
+    size_t level = 0;
+    for (size_t i = 0; i < ARRAY_SIZE(oled_contrast_levels); i++) {
+        if (oled_contrast_levels[i] == oled_contrast) {
+            level = i;
+            break;
+        }
     }
+
+    if (binding->param1 == 1) {
+        if (level < ARRAY_SIZE(oled_contrast_levels) - 1) {
+            level++;
+        }
+    } else if (level > 0) {
+        level--;
+    }
+    oled_contrast = oled_contrast_levels[level];
 
     int rc = apply_oled_contrast();
 #if IS_ENABLED(CONFIG_SETTINGS)
