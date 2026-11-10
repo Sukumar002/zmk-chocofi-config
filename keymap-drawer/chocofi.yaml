@@ -1,7 +1,7 @@
-layout: {zmk_keyboard: chocofi, layout_name: five_column_transform}
+layout: {zmk_keyboard: chocofi, layout_name: default_transform}
 layers:
   BASE:
-  - {t: Q, h: FN}
+  - {t: Q, h: SET}
   - W
   - E
   - R
@@ -11,16 +11,16 @@ layers:
   - I
   - O
   - P
-  - '&hml_s LSHIFT A'
-  - '&hml LCTRL S'
-  - '&hml LALT D'
-  - '&hml LGUI F'
-  - {t: G, h: NUM}
+  - {t: A, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: S, h: '$$mdi:apple-keyboard-control$$'}
+  - {t: D, h: '$$mdi:apple-keyboard-option$$'}
+  - {t: F, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: G, h: NAV}
   - H
-  - '&hmr RGUI J'
-  - '&hmr RALT K'
-  - '&hmr RCTRL L'
-  - '&hmr_s RSHIFT SEMI'
+  - {t: J, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: K, h: '$$mdi:apple-keyboard-option$$'}
+  - {t: L, h: '$$mdi:apple-keyboard-control$$'}
+  - {t: ;, h: '$$mdi:apple-keyboard-shift$$'}
   - Z
   - X
   - C
@@ -32,128 +32,54 @@ layers:
   - .
   - /
   - $$mdi:apple-keyboard-shift$$
-  - {t: '$$mdi:keyboard-tab$$', h: NAV}
-  - {t: '$$mdi:keyboard-space$$', h: 'Ctl+Sft+$$mdi:apple-keyboard-option$$'}
-  - ⮐
-  - {t: Esc, h: SYM}
+  - {t: '$$mdi:keyboard-tab$$', h: MOUSE}
+  - {t: '$$mdi:keyboard-space$$', h: '$$mdi:apple-keyboard-command$$'}
+  - {t: ⮐, h: '$$mdi:apple-keyboard-option$$'}
+  - {t: Esc, h: NUM}
   - {t: BSPC, s: DEL}
   NUM:
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: ▽, type: trans}
-  - '7'
-  - '8'
-  - '9'
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - '4'
-  - '5'
-  - '6'
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - '0'
-  - '1'
-  - '2'
-  - '3'
-  - ''
-  - ''
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  SYM:
-  - '!'
-  - '@'
-  - '#'
-  - $
-  - '%'
-  - {t: ▽, type: trans}
-  - ^
-  - '&'
-  - '*'
-  - \
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '='
-  - (
-  - )
-  - ''''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - {t: ▽, type: trans}
-  - '-'
-  - '['
-  - ']'
-  - \
-  - ''
-  - ''
-  - ''
-  - ''
-  - {type: held}
-  - ''
-  FN:
-  - {t: BASE, h: sticky, type: held}
-  - {t: '$$mdi:keyboard$$', s: '$$mdi:usb$$', type: sym_by_sym}
-  - {t: '$$mdi:keyboard$$', s: '$$mdi:bluetooth$$', type: sym_by_sym}
-  - ''
-  - {t: '$$mdi:bluetooth-settings$$', s: '$$mdi:close-thick$$', type: sym_sub_text}
-  - F10
-  - F7
-  - F8
-  - F9
-  - AL LOCK
-  - {t: '$$mdi:bluetooth-connect$$', s: '0', type: sym_sub_text}
-  - {t: '$$mdi:bluetooth-connect$$', s: '1', type: sym_sub_text}
-  - {t: '$$mdi:bluetooth-connect$$', s: '2', type: sym_sub_text}
-  - {t: '$$mdi:bluetooth-connect$$', s: '3', type: sym_sub_text}
-  - {t: '$$mdi:bluetooth-connect$$', s: '4', type: sym_sub_text}
-  - F11
-  - F4
-  - F5
-  - F6
-  - ''
-  - {t: '$$mdi:flash$$', h: '$$mdi:new-box$$', s: '$$mdi:micro-sd$$', type: sym_by_sym}
-  - ''
-  - ''
-  - ''
-  - ''
-  - F12
   - F1
   - F2
   - F3
-  - ''
+  - F4
+  - F5
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - F11
+  - F12
+  - \
+  - '['
+  - ']'
+  - '='
+  - '-'
+  - (
+  - )
+  - ''''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   NAV:
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - $$mdi:volume-mute$$
   - $$mdi:volume-minus$$
   - $$mdi:volume-plus$$
@@ -163,16 +89,39 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - $$mdi:arrow-left$$
   - $$mdi:arrow-down$$
   - $$mdi:arrow-up$$
   - $$mdi:arrow-right$$
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - Gui+X
   - Gui+C
   - Gui+V
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  SET:
+  - {type: held}
+  - {t: '&bt_select_profile', h: '&bt_clear_profile'}
+  - {t: '&bt_select_profile 1', h: '&bt_clear_profile 1'}
+  - {t: '&bt_select_profile 2', h: '&bt_clear_profile 2'}
+  - {t: '&bt_select_profile 3', h: '&bt_clear_profile 3'}
+  - {t: '&bt_select_profile 4', h: '&bt_clear_profile 4'}
+  - {t: '$$mdi:flash$$', h: '$$mdi:new-box$$', s: '$$mdi:micro-sd$$', type: sym_by_sym}
+  - {t: '$$mdi:toggle-switch$$', h: '$$mdi:bluetooth$$', s: '$$mdi:usb$$', type: toggle}
+  - {t: '$$mdi:bluetooth-settings$$', h: '$$mdi:asterisk$$', s: '$$mdi:close-thick$$', type: sym_sub_text}
+  - '&tog_ls'
   - ''
   - ''
   - ''
@@ -180,6 +129,57 @@ layers:
   - ''
   - ''
   - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  MOUSE:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&msc SCRL_LEFT'
+  - $$mdi:mouse-move-up$$
+  - {t: '$$mdi:tortoise$$', s: '$$mdi:arrow-up$$', type: sym_by_sym}
+  - $$mdi:mouse-move-down$$
+  - '&msc SCRL_RIGHT'
+  - $$mdi:cursor-default-click$$
+  - '&mkp MCLK'
+  - $$mdi:cursor-default-click-outline$$
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: '$$mdi:tortoise$$', s: '$$mdi:arrow-left$$', type: sym_by_sym}
+  - {t: '$$mdi:tortoise$$', s: '$$mdi:arrow-down$$', type: sym_by_sym}
+  - {t: '$$mdi:tortoise$$', s: '$$mdi:arrow-right$$', type: sym_by_sym}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
