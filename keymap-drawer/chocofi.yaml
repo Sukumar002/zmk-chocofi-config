@@ -1,4 +1,4 @@
-layout: {zmk_keyboard: chocofi, layout_name: default_transform}
+layout: {zmk_keyboard: chocofi}
 layers:
   BASE:
   - {t: Q, h: SET}
@@ -191,4 +191,7 @@ combos:
   l: [BASE]
 - p: [12, 13]
   k: '&smart_shift'
+  l: [BASE]
+- p: [0, 1]
+  k: '&studio_unlock'
   l: [BASE]

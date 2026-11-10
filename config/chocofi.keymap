@@ -36,13 +36,6 @@ ZMK_MOD_MORPH(smart_shift,
     mods = <(MOD_LSFT)>;
 )
 
-/ {
-    chosen {
-        /* Use the shield's explicit matrix transform; do not fall back to row*columns. */
-        zmk,matrix-transform = &default_transform;
-    };
-};
-
 /* GUI <-> Alt mapping: inactive = macOS, active = Windows. */
 &tog_ls {
     layout-maps = <&layout_shift_map_gui_alt>;
@@ -110,6 +103,13 @@ ZMK_MOD_MORPH(smart_shift,
             timeout-ms = <50>;
             bindings = <&smart_shift>;
             key-positions = <12 13>;
+            layers = <BASE>;
+        };
+
+        studio_unlock_combo {
+            timeout-ms = <50>;
+            bindings = <&studio_unlock>;
+            key-positions = <0 1>;
             layers = <BASE>;
         };
     };
