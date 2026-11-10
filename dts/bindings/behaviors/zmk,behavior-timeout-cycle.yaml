@@ -1,0 +1,5 @@
+description: Cycle display and split-half inactivity timeouts
+
+compatible: "zmk,behavior-timeout-cycle"
+
+include: one_param.yaml
