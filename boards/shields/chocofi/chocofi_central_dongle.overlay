@@ -1,0 +1,19 @@
+/* SPDX-License-Identifier: MIT */
+#include "chocofi.dtsi"
+
+/* The USB dongle has no local key matrix; it only routes split input. */
+/ {
+    chosen {
+        /delete-property/ zephyr,display;
+        zmk,kscan = &mock_kscan;
+    };
+
+    mock_kscan: kscan1 {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+};
+
+/delete-node/ &kscan0;
