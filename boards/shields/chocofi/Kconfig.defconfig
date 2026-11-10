@@ -33,13 +33,10 @@ if SHIELD_CHOCOFI_LEFT || SHIELD_CHOCOFI_RIGHT || SHIELD_CHOCOFI_CENTRAL_DONGLE 
 config ZMK_SPLIT
     default y
 
-config SPI
-    default y
-
+if ZMK_DISPLAY
 config I2C
     default y
 
-if ZMK_DISPLAY
 config SSD1306
     default y
 
