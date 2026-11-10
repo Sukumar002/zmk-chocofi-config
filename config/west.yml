@@ -11,7 +11,7 @@ manifest:
     # Pin to the exact ZMK fork revision used by the validated dongle foundation.
     - name: zmk
       remote: sukumar
-      revision: 77fd6f7710c63d1a13013c3fde24ca4ddcb92436
+      revision: ac9ff09c5e44c9044103ad415391f1cf159bab63
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
