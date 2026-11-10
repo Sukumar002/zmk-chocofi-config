@@ -148,7 +148,7 @@ ZMK_MOD_MORPH(smart_shift,
                 &lt SET Q    &kp W       &kp E       &kp R       &kp T          &kp Y       &kp U       &kp I       &kp O       &kp P
                 &mt LSHIFT A &mt LCTRL S &mt LALT D  &mt LGUI F  &lt NAV G      &kp H       &mt RGUI J  &mt RALT K  &mt RCTRL L &mt RSHIFT SEMI
                 &kp Z        &kp X       &kp C       &kp V       &kp B          &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH
-                                      &kp LSHIFT   &lt MOUSE TAB  &mt LGUI SPACE     &mt LALT RETURN  &lt NUM ESC  &SBD
+                                      &lt SET ESC   &mt LGUI TAB  &lt NUM TAB     &lt NAV RETURN  &mt LGUI SPACE  &SBD
             >;
         };
 
