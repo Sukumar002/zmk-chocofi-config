@@ -192,3 +192,6 @@ combos:
 - p: [12, 13]
   k: '&smart_shift'
   l: [BASE]
+- p: [0, 1]
+  k: '&studio_unlock'
+  l: [BASE]
