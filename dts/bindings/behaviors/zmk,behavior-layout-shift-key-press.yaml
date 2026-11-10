@@ -1,3 +1,0 @@
-description: Layout shift key press behavior
-compatible: "zmk,behavior-layout-shift-key-press"
-include: one_param.yaml
