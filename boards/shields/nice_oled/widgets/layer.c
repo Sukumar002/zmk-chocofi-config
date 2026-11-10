@@ -12,17 +12,11 @@ void draw_layer_status(lv_obj_t *canvas, const struct status_state *state) {
 
     char text[10] = {};
 
-    /*
-     * Keep the current Chocofi Num layer label explicit until the shared
-     * Studio layer-name synchronization is implemented. Other layer names
-     * are rendered exactly as supplied by zmk_keymap_layer_name().
-     */
-    if (state->layer_index == 1) {
-        strncpy(text, "NUM", sizeof(text) - 1);
-    } else if (state->layer_label == NULL) {
-        snprintf(text, sizeof(text), "Layer %i", state->layer_index);
+    if (state->layer_label == NULL) {
+        sprintf(text, "Layer %i", state->layer_index);
     } else {
-        strncpy(text, state->layer_label, sizeof(text) - 1);
+        strncpy(text, state->layer_label, 9);
+        to_uppercase(text);
     }
 
 #if IS_ENABLED(CONFIG_NICE_OLED_WIDGET_RESPONSIVE_BONGO_CAT)
