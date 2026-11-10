@@ -26,6 +26,7 @@ include:
   # by default when ZMK_STUDIO and ZMK_BLE are both enabled).
   - board: nice_nano//zmk
     shield: chocofi_central_left
+    snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: chocofi_central_left
 
