@@ -5,6 +5,7 @@
 / {
     chosen {
         /delete-property/ zephyr,display;
+        /delete-property/ zmk,matrix-transform;
         zmk,kscan = &mock_kscan;
     };
 
