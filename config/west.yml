@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/Sukumar002
     - name: urob
       url-base: https://github.com/urob
+    - name: mctechnology17
+      url-base: https://github.com/mctechnology17
 
   projects:
     # Pin to the exact ZMK fork revision used by the validated dongle foundation.
@@ -19,7 +21,11 @@ manifest:
     # Shared Hana/Chocofi central-dongle OLED status implementation.
     - name: zmk-dongle-display
       remote: sukumar
-      revision: 2a35aa8cdd293e758239dd7f65f764fd0cc27e49
+      revision: f7e043d3b579a231fa192ebb2bf61ada2c03fb73
+    # Dedicated Pro Micro OLED hardware overlays for 128x32 / 128x64 panels.
+    - name: zmk-oled-adapter
+      remote: mctechnology17
+      revision: 892c83d60b6a365c35334c06831d9c5b0f2ba9c0
 
   self:
     path: config
