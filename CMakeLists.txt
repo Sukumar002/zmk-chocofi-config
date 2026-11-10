@@ -7,3 +7,11 @@ if(CONFIG_LAYOUT_SHIFT)
     )
   endif()
 endif()
+
+# Dongle OLED controls shared by the Chocofi central firmware.
+target_sources(app PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/src/behavior_oled_toggle.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/behavior_base_view_toggle.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/behavior_timeout_cycle.c
+  ${CMAKE_CURRENT_LIST_DIR}/src/behavior_oled_brightness.c
+)
