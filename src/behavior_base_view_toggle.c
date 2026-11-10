@@ -5,7 +5,7 @@
 #include <zmk/behavior.h>
 
 #if IS_ENABLED(CONFIG_ZMK_DISPLAY)
-#include <hana_base_view.h>
+extern void hana_base_view_cycle(void);
 #endif
 
 static int on_base_view_toggle_pressed(struct zmk_behavior_binding *binding,
