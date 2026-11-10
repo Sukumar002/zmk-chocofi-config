@@ -1,0 +1,12 @@
+/*
+ * Hana-derived runtime layer capacity for ZMK Studio.
+ *
+ * Studio can add layers only when compile-time slots exist. Reserved slots
+ * contribute to the keymap layer capacity without appearing in the active
+ * layer stack until the user adds them in Studio.
+ */
+#define ZMK_STUDIO_RUNTIME_LAYER_SLOTS_4 \
+    studio_runtime_layer_1 { status = "reserved"; }; \
+    studio_runtime_layer_2 { status = "reserved"; }; \
+    studio_runtime_layer_3 { status = "reserved"; }; \
+    studio_runtime_layer_4 { status = "reserved"; };
