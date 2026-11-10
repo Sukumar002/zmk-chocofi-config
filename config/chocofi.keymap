@@ -10,12 +10,23 @@
 
 #include "zmk-helpers/helper.h"
 #include "keys/36.h"
+#include "studio_runtime_layers.dtsi"
 
 /* Hana-aligned timing for every Mod-Tap key. */
 &mt {
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <175>;
+    runtime-editable;
+    runtime-default-active;
+    display-name = "Mod-Tap";
+};
+
+/* Expose Chocofi layer-tap behavior to ZMK Studio as Hana does. */
+&lt {
+    runtime-editable;
+    runtime-default-active;
+    display-name = "Layer-Tap";
 };
 
 /* Keep the Chocofi's 36-key / five-column physical layout unchanged. */
@@ -86,6 +97,8 @@ ZMK_MOD_MORPH(smart_shift,
             bindings = <&bt_clear_profile>, <&bt_select_profile>;
             hold-trigger-key-positions = <0xffffffff 0xffffffff>;
             display-name = "Bluetooth Profile";
+            runtime-editable;
+            runtime-default-active;
         };
 
         SBD: S_BSPC_DEL {
@@ -111,6 +124,15 @@ ZMK_MOD_MORPH(smart_shift,
             bindings = <&smart_shift>;
             key-positions = <12 13>;
             layers = <BASE>;
+        };
+
+        /* Hana-style Studio unlock chord: first two physical positions on BASE. */
+        studio_unlock_combo {
+            timeout-ms = <50>;
+            require-prior-idle-ms = <500>;
+            layers = <BASE>;
+            key-positions = <0 1>;
+            bindings = <&studio_unlock>;
         };
     };
 
@@ -167,6 +189,9 @@ ZMK_MOD_MORPH(smart_shift,
                                       ___ ___ ___ ___ ___ ___
             >;
         };
+
+        /* Four compile-time slots reserved for layers added later in Studio. */
+        ZMK_STUDIO_RUNTIME_LAYER_SLOTS_4
     };
 };
 
