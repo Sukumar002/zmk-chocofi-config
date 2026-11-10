@@ -1,0 +1,5 @@
+description: Adjust SSD1306 OLED contrast (perceived brightness)
+
+compatible: "zmk,behavior-oled-brightness"
+
+include: one_param.yaml
