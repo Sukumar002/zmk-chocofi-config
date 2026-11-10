@@ -18,11 +18,10 @@ manifest:
     - name: zmk-helpers
       remote: urob
       revision: 7bcba18fc8df27303eb92a435d33ea870cc51f98
-    # Latest Hana 128x32 raw dashboard: segmented left/right regions,
-    # text-only half battery rows on BASE, and layer badge in the right region.
+    # Hana v2.3 LVGL compact renderer, adapted for Chocofi side-labelled batteries.
     - name: zmk-dongle-display
       remote: sukumar
-      revision: 734e00633deefc5b78e9a7655983adfc19c6ff4e
+      revision: b414f78d534dde80dd7edb992f6671f29b551414
     # Dedicated Pro Micro OLED hardware overlays for 128x32 / 128x64 panels.
     - name: zmk-oled-adapter
       remote: mctechnology17
