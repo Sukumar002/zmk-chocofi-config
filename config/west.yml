@@ -19,7 +19,7 @@ manifest:
     # Shared Hana/Chocofi central-dongle OLED status implementation.
     - name: zmk-dongle-display
       remote: sukumar
-      revision: b8698292dd87da6e6074b736440a635aa03ef01b
+      revision: e7b34834efbce058bd79468a7f720fa47e130f2b
 
   self:
     path: config
