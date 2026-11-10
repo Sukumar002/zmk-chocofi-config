@@ -21,6 +21,11 @@ include:
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: chocofi_central_dongle_128x32
 
+  # Alternative topology: the physical left half is the BLE central.
+  - board: nice_nano//zmk
+    shield: chocofi_central_left
+    artifact-name: chocofi_central_left
+
   # Both physical halves are BLE peripherals to the central dongle.
   - board: nice_nano//zmk
     shield: chocofi_peripheral_left
