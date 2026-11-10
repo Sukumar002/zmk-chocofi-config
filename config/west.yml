@@ -10,7 +10,7 @@ manifest:
       url-base: https://github.com/mctechnology17
 
   projects:
-    # Pin to the exact ZMK fork revision used by the validated dongle foundation.
+    # Pin the validated dongle foundation.
     - name: zmk
       remote: sukumar
       revision: 5cf93dad86e9b2148c713305da2002613f023860
@@ -18,10 +18,11 @@ manifest:
     - name: zmk-helpers
       remote: urob
       revision: 7bcba18fc8df27303eb92a435d33ea870cc51f98
-    # Shared Hana/Chocofi central-dongle OLED status implementation.
+    # Latest Hana 128x32 raw dashboard: segmented left/right regions,
+    # text-only half battery rows on BASE, and layer badge in the right region.
     - name: zmk-dongle-display
       remote: sukumar
-      revision: 5ee2d8a63736febdb3ac2bc8cf0c650826dd58de
+      revision: 734e00633deefc5b78e9a7655983adfc19c6ff4e
     # Dedicated Pro Micro OLED hardware overlays for 128x32 / 128x64 panels.
     - name: zmk-oled-adapter
       remote: mctechnology17
