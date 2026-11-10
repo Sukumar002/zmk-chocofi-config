@@ -1,0 +1,51 @@
+/* Chocofi 36-key physical layout for ZMK Studio.
+ * Key order matches default_transform and the 36-position keymap.
+ * Coordinates are taken from this repository's existing keymap-drawer layout.
+ */
+#include <physical_layouts.dtsi>
+
+/ {
+    default_layout: default_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "Chocofi 36-key";
+        transform = <&default_transform>;
+        keys
+            = <&key_physical_attrs 100 100 0 100 0 0 0> /* 0 */
+             ,<&key_physical_attrs 100 100 100 34 0 0 0> /* 1 */
+             ,<&key_physical_attrs 100 100 200 0 0 0 0> /* 2 */
+             ,<&key_physical_attrs 100 100 302 37 0 0 0> /* 3 */
+             ,<&key_physical_attrs 100 100 402 51 0 0 0> /* 4 */
+             ,<&key_physical_attrs 100 100 831 51 0 0 0> /* 5 */
+             ,<&key_physical_attrs 100 100 932 37 0 0 0> /* 6 */
+             ,<&key_physical_attrs 100 100 1032 0 0 0 0> /* 7 */
+             ,<&key_physical_attrs 100 100 1132 34 0 0 0> /* 8 */
+             ,<&key_physical_attrs 100 100 1234 100 0 0 0> /* 9 */
+             ,<&key_physical_attrs 100 100 0 195 0 0 0> /* 10 */
+             ,<&key_physical_attrs 100 100 100 129 0 0 0> /* 11 */
+             ,<&key_physical_attrs 100 100 200 95 0 0 0> /* 12 */
+             ,<&key_physical_attrs 100 100 302 132 0 0 0> /* 13 */
+             ,<&key_physical_attrs 100 100 402 146 0 0 0> /* 14 */
+             ,<&key_physical_attrs 100 100 831 146 0 0 0> /* 15 */
+             ,<&key_physical_attrs 100 100 932 132 0 0 0> /* 16 */
+             ,<&key_physical_attrs 100 100 1032 95 0 0 0> /* 17 */
+             ,<&key_physical_attrs 100 100 1132 129 0 0 0> /* 18 */
+             ,<&key_physical_attrs 100 100 1234 195 0 0 0> /* 19 */
+             ,<&key_physical_attrs 100 100 0 290 0 0 0> /* 20 */
+             ,<&key_physical_attrs 100 100 100 224 0 0 0> /* 21 */
+             ,<&key_physical_attrs 100 100 200 190 0 0 0> /* 22 */
+             ,<&key_physical_attrs 100 100 302 227 0 0 0> /* 23 */
+             ,<&key_physical_attrs 100 100 402 241 0 0 0> /* 24 */
+             ,<&key_physical_attrs 100 100 831 241 0 0 0> /* 25 */
+             ,<&key_physical_attrs 100 100 932 227 0 0 0> /* 26 */
+             ,<&key_physical_attrs 100 100 1032 190 0 0 0> /* 27 */
+             ,<&key_physical_attrs 100 100 1132 224 0 0 0> /* 28 */
+             ,<&key_physical_attrs 100 100 1234 290 0 0 0> /* 29 */
+             ,<&key_physical_attrs 100 100 268 339 0 0 0> /* 30 */
+             ,<&key_physical_attrs 100 100 380 353 1500 430 403> /* 31 */
+             ,<&key_physical_attrs 100 150 493 344 3000 543 419> /* 32 */
+             ,<&key_physical_attrs 100 150 734 344 -3000 784 419> /* 33 */
+             ,<&key_physical_attrs 100 100 853 351 -1500 903 401> /* 34 */
+             ,<&key_physical_attrs 100 100 964 339 0 0 0> /* 35 */
+            ;
+    };
+};
