@@ -11,7 +11,7 @@ manifest:
     # Pin to the exact ZMK fork revision used by the validated dongle foundation.
     - name: zmk
       remote: sukumar
-      revision: ac9ff09c5e44c9044103ad415391f1cf159bab63
+      revision: 0416b3a657f985beb039e316f3d9811d2c438c2e
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
@@ -19,7 +19,7 @@ manifest:
     # Shared Hana/Chocofi central-dongle OLED status implementation.
     - name: zmk-dongle-display
       remote: sukumar
-      revision: 529c63f20876662dbc500f747c7f4c04dac72137
+      revision: 58431f1c9f9bc7ac0f85b28947a08a11fa984db4
 
   self:
     path: config
