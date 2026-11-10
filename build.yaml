@@ -22,8 +22,11 @@ include:
     artifact-name: chocofi_central_dongle_128x32
 
   # Alternative topology: the physical left half is the BLE central.
+  # Enable ZMK Studio RPC over BLE (the Studio BLE GATT transport is enabled
+  # by default when ZMK_STUDIO and ZMK_BLE are both enabled).
   - board: nice_nano//zmk
     shield: chocofi_central_left
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: chocofi_central_left
 
   # Both physical halves are BLE peripherals to the central dongle.
