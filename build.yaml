@@ -14,11 +14,11 @@ include:
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: chocofi_central_dongle_128x64
 
-  # Compact central dongle with 128x32 SSD1306 OLED and shared SET-layer OLED controls.
+  # Compact central dongle with Hana's standalone 128x32 framebuffer renderer.
   - board: nice_nano//zmk
     shield: chocofi_central_dongle_128x32 dongle_display oled_adapter_pro_micro_128x32
     snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_DISPLAY=n
     artifact-name: chocofi_central_dongle_128x32
 
   # Alternative topology: the physical left half is the BLE central.
