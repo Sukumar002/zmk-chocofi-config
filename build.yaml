@@ -3,6 +3,8 @@ include:
   # Central dongle (no display for the first hardware-validation milestone).
   - board: nice_nano//zmk
     shield: chocofi_central_dongle
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: chocofi_central_dongle
 
   # Both physical halves are BLE peripherals to the central dongle.
