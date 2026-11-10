@@ -1,28 +1,21 @@
 #include "chocofi_central_dongle.overlay"
 
-/ {
-    chosen {
-        zephyr,display = &oled_dongle;
-    };
+/* Reuse and reconfigure the single SSD1306 node from chocofi.dtsi. */
+&oled {
+    status = "okay";
+    width = <128>;
+    height = <32>;
+    segment-offset = <0>;
+    page-offset = <0>;
+    display-offset = <0>;
+    multiplex-ratio = <31>;
+    segment-remap;
+    com-invdir;
+    prechargep = <0x22>;
 };
 
-&pro_micro_i2c {
-    status = "okay";
-
-    oled_dongle: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
-
-        width = <128>;
-        height = <32>;
-
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <31>;
-
-        segment-remap;
-        com-invdir;
-        prechargep = <0x22>;
+/ {
+    chosen {
+        zephyr,display = &oled;
     };
 };
