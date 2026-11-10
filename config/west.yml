@@ -2,16 +2,20 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: sukumar
+      url-base: https://github.com/Sukumar002
     - name: urob
       url-base: https://github.com/urob
 
   projects:
+    # Pin to the exact ZMK fork revision used by the validated dongle foundation.
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: sukumar
+      revision: 77fd6f7710c63d1a13013c3fde24ca4ddcb92436
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
-      revision: main
+      revision: 7bcba18fc8df27303eb92a435d33ea870cc51f98
+
   self:
     path: config

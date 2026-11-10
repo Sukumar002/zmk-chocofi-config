@@ -1,8 +1,20 @@
 ---
 include:
+  # Central dongle (no display for the first hardware-validation milestone).
   - board: nice_nano//zmk
-    shield: chocofi_left nice_view_adapter nice_view_gem
+    shield: chocofi_central_dongle
+    artifact-name: chocofi_central_dongle
+
+  # Both physical halves are BLE peripherals to the central dongle.
   - board: nice_nano//zmk
-    shield: chocofi_right nice_view_adapter nice_epaper
+    shield: chocofi_peripheral_left
+    artifact-name: chocofi_left_peripheral
+
+  - board: nice_nano//zmk
+    shield: chocofi_peripheral_right
+    artifact-name: chocofi_right_peripheral
+
+  # Settings reset for the Pro Micro / nice!nano-compatible controllers.
   - board: nice_nano//zmk
     shield: settings_reset
+    artifact-name: chocofi_settings_reset
