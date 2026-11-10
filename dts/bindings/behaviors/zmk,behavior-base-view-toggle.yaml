@@ -1,0 +1,5 @@
+description: Cycle the persistent BASE display view
+
+compatible: "zmk,behavior-base-view-toggle"
+
+include: zero_param.yaml

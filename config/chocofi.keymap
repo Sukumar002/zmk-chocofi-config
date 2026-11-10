@@ -87,6 +87,31 @@ ZMK_MOD_MORPH(smart_shift,
             bindings = <&kp BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
+
+        /* Dongle OLED controls; all execute on the central dongle. */
+        oled_tog: oled_toggle {
+            compatible = "zmk,behavior-oled-toggle";
+            #binding-cells = <0>;
+            display-name = "OLED Power";
+        };
+
+        base_view_tog: base_view_toggle {
+            compatible = "zmk,behavior-base-view-toggle";
+            #binding-cells = <0>;
+            display-name = "BASE View Cycle";
+        };
+
+        timeout_cycle: timeout_cycle {
+            compatible = "zmk,behavior-timeout-cycle";
+            #binding-cells = <1>;
+            display-name = "Timeout Cycle";
+        };
+
+        oled_brightness: oled_brightness {
+            compatible = "zmk,behavior-oled-brightness";
+            #binding-cells = <1>;
+            display-name = "OLED Brightness";
+        };
     };
 
     combos {
@@ -152,7 +177,8 @@ ZMK_MOD_MORPH(smart_shift,
             bindings = <
                 _x_ &bt_profile 0 0 &bt_profile 1 1 &bt_profile 2 2 &bt_profile 3 3
                     &bt_profile 4 4 &bootloader &out OUT_TOG &bt BT_CLR_ALL &tog_ls
-                _x_ _x_ _x_ _x_ _x_ _x_ _x_ _x_ _x_ _x_
+                &base_view_tog &timeout_cycle 0 &timeout_cycle 1 &oled_tog
+                &oled_brightness 0 &oled_brightness 1 _x_ _x_ _x_ _x_
                 _x_ _x_ _x_ _x_ _x_ _x_ _x_ _x_ _x_ _x_
                                       ___ ___ ___ ___ ___ ___
             >;

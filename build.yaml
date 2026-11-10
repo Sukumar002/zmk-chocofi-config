@@ -1,11 +1,25 @@
 ---
 include:
-  # Central dongle (no display for the first hardware-validation milestone).
+  # Display-free central dongle remains available as the known-good fallback.
   - board: nice_nano//zmk
     shield: chocofi_central_dongle
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: chocofi_central_dongle
+
+  # Original hand-authored 128x64 OLED overlay retained for comparison.
+  - board: nice_nano//zmk
+    shield: chocofi_central_dongle_128x64 dongle_display
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: chocofi_central_dongle_128x64
+
+  # Compact central dongle with 128x32 SSD1306 OLED and shared SET-layer OLED controls.
+  - board: nice_nano//zmk
+    shield: chocofi_central_dongle_128x32 dongle_display
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: chocofi_central_dongle_128x32
 
   # Both physical halves are BLE peripherals to the central dongle.
   - board: nice_nano//zmk

@@ -122,12 +122,12 @@ layers:
   - {t: '$$mdi:toggle-switch$$', h: '$$mdi:bluetooth$$', s: '$$mdi:usb$$', type: toggle}
   - {t: '$$mdi:bluetooth-settings$$', h: '$$mdi:asterisk$$', s: '$$mdi:close-thick$$', type: sym_sub_text}
   - '&tog_ls'
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
+  - '&base_view_tog'
+  - '&timeout_cycle'
+  - '&timeout_cycle 1'
+  - '&oled_tog'
+  - '&oled_brightness'
+  - '&oled_brightness 1'
   - ''
   - ''
   - ''
