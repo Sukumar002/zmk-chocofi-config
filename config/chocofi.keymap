@@ -15,7 +15,7 @@
  * Prior-idle gating is explicitly disabled; quick-tap remains 175 ms.
  */
 &mt {
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <240>;
     quick-tap-ms = <175>;
     require-prior-idle-ms = <(-1)>;
