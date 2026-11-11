@@ -13,12 +13,12 @@ layers:
   - P
   - {t: A, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: S, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: D, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: F, h: '$$mdi:apple-keyboard-command$$'}
+  - '&mtls LALT D'
+  - '&mtls LGUI F'
   - {t: G, h: NAV}
   - H
-  - {t: J, h: '$$mdi:apple-keyboard-command$$'}
-  - {t: K, h: '$$mdi:apple-keyboard-option$$'}
+  - '&mtls RGUI J'
+  - '&mtls RALT K'
   - {t: L, h: '$$mdi:apple-keyboard-control$$'}
   - {t: ;, h: '$$mdi:apple-keyboard-shift$$'}
   - Z
@@ -33,8 +33,8 @@ layers:
   - /
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:keyboard-tab$$', h: MOUSE}
-  - {t: '$$mdi:keyboard-space$$', h: '$$mdi:apple-keyboard-command$$'}
-  - {t: ⮐, h: '$$mdi:apple-keyboard-option$$'}
+  - '&mtls LGUI SPACE'
+  - '&mtls LALT RETURN'
   - {t: Esc, h: NUM}
   - {t: BSPC, s: DEL}
   NUM:
@@ -96,9 +96,9 @@ layers:
   - $$mdi:arrow-right$$
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Gui+X
-  - Gui+C
-  - Gui+V
+  - '&kpls LG(X)'
+  - '&kpls LG(C)'
+  - '&kpls LG(V)'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
