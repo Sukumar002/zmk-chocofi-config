@@ -11,11 +11,20 @@
 #include "zmk-helpers/helper.h"
 #include "keys/36.h"
 
-/* Hana-aligned timing for every Mod-Tap key. */
+/* Responsive, consistent timing for Chocofi hold-tap behaviors.
+ * Prior-idle gating is explicitly disabled; quick-tap remains 175 ms.
+ */
 &mt {
     flavor = "balanced";
-    tapping-term-ms = <200>;
+    tapping-term-ms = <240>;
     quick-tap-ms = <175>;
+    require-prior-idle-ms = <-1>;
+};
+
+&lt {
+    tapping-term-ms = <240>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <-1>;
 };
 
 /* Keep the Chocofi's 36-key / five-column physical layout unchanged. */
