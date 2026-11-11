@@ -30,13 +30,15 @@
             display-name = "Layout Shift Off";
         };
 
+        /* GUI/Alt Mod-Taps: translated hold, native tap. */
         mtls: layout_shift_mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             tapping-term-ms = <200>;
-            bindings = <&kpls>, <&kpls>;
-            display-name = "Mod-Tap with Layout Shift";
+            quick-tap-ms = <175>;
+            bindings = <&kpls>, <&kp>;
+            display-name = "Layout-Shift GUI/Alt Mod-Tap";
         };
     };
 };

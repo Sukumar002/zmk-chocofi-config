@@ -2,13 +2,9 @@
 
 / {
     behaviors {
+        /* Explicit native keypress alias retained for diagnostics and Studio. */
         original_key_press: original_key_press {
             compatible = "zmk,behavior-key-press";
-            #binding-cells = <1>;
-        };
-
-        kp: key_press {
-            compatible = "zmk,behavior-layout-shift-key-press";
             #binding-cells = <1>;
         };
     };
