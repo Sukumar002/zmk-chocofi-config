@@ -1,9 +1,10 @@
 name: Build Workflow
 
 on:
-  push: 
-    branches: 
-      - main  # Specify your main branch
+  push:
+    branches:
+      - main
+      - feature/chocofi-oled-dongle
   pull_request: 
     branches: 
       - main  # Specify your main branch
