@@ -13,7 +13,7 @@
 
 /* Hana-aligned timing for every standard Mod-Tap key. */
 &mt {
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <200>;
     quick-tap-ms = <175>;
 };
