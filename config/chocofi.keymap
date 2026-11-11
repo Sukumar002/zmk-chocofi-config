@@ -18,13 +18,13 @@
     flavor = "balanced";
     tapping-term-ms = <240>;
     quick-tap-ms = <175>;
-    require-prior-idle-ms = <-1>;
+    require-prior-idle-ms = <(-1)>;
 };
 
 &lt {
     tapping-term-ms = <240>;
     quick-tap-ms = <175>;
-    require-prior-idle-ms = <-1>;
+    require-prior-idle-ms = <(-1)>;
 };
 
 /* Keep the Chocofi's 36-key / five-column physical layout unchanged. */
