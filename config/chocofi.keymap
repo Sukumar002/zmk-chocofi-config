@@ -11,11 +11,18 @@
 #include "zmk-helpers/helper.h"
 #include "keys/36.h"
 
-/* Hana-aligned timing for every Mod-Tap key. */
+/* Preserve the release timing; change only modifier hold decision strategy.
+ * Prior-idle gating remains disabled (ZMK default).
+ */
 &mt {
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <200>;
-    quick-tap-ms = <175>;
+    /*
+     * Assert the modifier immediately on key-down. If the key resolves as a
+     * tap, the modifier is released before the tap key is emitted.
+     * Leave quick-tap disabled (ZMK default) so rapid repeats can still hold.
+     */
+    hold-while-undecided;
 };
 
 /* Keep the Chocofi's 36-key / five-column physical layout unchanged. */
