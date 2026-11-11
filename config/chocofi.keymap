@@ -11,9 +11,11 @@
 #include "zmk-helpers/helper.h"
 #include "keys/36.h"
 
-/* Hana-aligned timing for every Mod-Tap key. */
+/* Preserve the release timing; change only modifier hold decision strategy.
+ * Prior-idle gating remains disabled (ZMK default).
+ */
 &mt {
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <200>;
     quick-tap-ms = <175>;
 };
