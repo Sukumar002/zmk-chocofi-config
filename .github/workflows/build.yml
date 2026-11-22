@@ -12,11 +12,12 @@ on:
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    uses: Sukumar002/zmk/.github/workflows/build-user-config.yml@7e05bf9846900e6eafd7b4665ac5240dcaca7b39
 
   draw:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build  
-    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@467abe2a2fee3a1ec1658d8c3fe33d1cc562b53c
     permissions:
       contents: write 
     with:

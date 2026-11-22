@@ -5,7 +5,7 @@
 #include <zmk/behavior.h>
 
 #if IS_ENABLED(CONFIG_ZMK_DISPLAY)
-extern void hana_base_view_cycle(void);
+extern void zmk_dongle_display_base_view_cycle(void) __attribute__((weak));
 #endif
 
 static int on_base_view_toggle_pressed(struct zmk_behavior_binding *binding,
@@ -13,7 +13,9 @@ static int on_base_view_toggle_pressed(struct zmk_behavior_binding *binding,
     ARG_UNUSED(binding);
     ARG_UNUSED(event);
 #if IS_ENABLED(CONFIG_ZMK_DISPLAY)
-    hana_base_view_cycle();
+    if (zmk_dongle_display_base_view_cycle != NULL) {
+        zmk_dongle_display_base_view_cycle();
+    }
 #endif
     return ZMK_BEHAVIOR_OPAQUE;
 }
