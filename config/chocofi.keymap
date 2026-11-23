@@ -117,25 +117,57 @@ ZMK_MOD_MORPH(smart_shift,
     combos {
         compatible = "zmk,combos";
 
-        iu_backspace_combo {
-            timeout-ms = <50>;
-            bindings = <&kp COLON>;
-            key-positions = <16 17>;
-            layers = <BASE>;
-        };
-
-        jk_colon_combo {
-            timeout-ms = <50>;
-            bindings = <&smart_shift>;
-            key-positions = <12 13>;
-            layers = <BASE>;
-        };
-
+        /* Synced from the Chocofi ZMK Studio export (2026-11-23).
+         * No layer restriction: activeLayerIndices was null for every combo.
+         * Preserve the exported 50 ms timeout and disabled prior-idle gate.
+         */
         studio_unlock_combo {
             timeout-ms = <50>;
+            require-prior-idle-ms = <(-1)>;
             bindings = <&studio_unlock>;
             key-positions = <0 1>;
-            layers = <BASE>;
+        };
+
+        set_layer_combo {
+            timeout-ms = <50>;
+            require-prior-idle-ms = <(-1)>;
+            bindings = <&lt SET ESC>;
+            key-positions = <32 33>;
+        };
+
+        backspace_combo {
+            timeout-ms = <50>;
+            require-prior-idle-ms = <(-1)>;
+            bindings = <&mt LALT BSPC>;
+            key-positions = <16 17>;
+        };
+
+        delete_combo {
+            timeout-ms = <50>;
+            require-prior-idle-ms = <(-1)>;
+            bindings = <&mt LGUI DEL>;
+            key-positions = <17 18>;
+        };
+
+        apos_combo {
+            timeout-ms = <50>;
+            require-prior-idle-ms = <(-1)>;
+            bindings = <&mt RCTRL APOS>;
+            key-positions = <16 18>;
+        };
+
+        tab_combo {
+            timeout-ms = <50>;
+            require-prior-idle-ms = <(-1)>;
+            bindings = <&mt LALT TAB>;
+            key-positions = <12 13>;
+        };
+
+        grave_combo {
+            timeout-ms = <50>;
+            require-prior-idle-ms = <(-1)>;
+            bindings = <&mt LGUI GRAVE>;
+            key-positions = <11 12>;
         };
     };
 

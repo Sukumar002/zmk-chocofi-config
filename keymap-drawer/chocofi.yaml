@@ -186,12 +186,17 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
-- p: [16, 17]
-  k: ':'
-  l: [BASE]
-- p: [12, 13]
-  k: '&smart_shift'
-  l: [BASE]
 - p: [0, 1]
   k: '&studio_unlock'
-  l: [BASE]
+- p: [32, 33]
+  k: {t: Esc, h: SET}
+- p: [16, 17]
+  k: {t: BSPC, h: '$$mdi:apple-keyboard-option$$'}
+- p: [17, 18]
+  k: {t: DEL, h: '$$mdi:apple-keyboard-command$$'}
+- p: [16, 18]
+  k: {t: '''', h: '$$mdi:apple-keyboard-control$$'}
+- p: [12, 13]
+  k: {t: '$$mdi:keyboard-tab$$', h: '$$mdi:apple-keyboard-option$$'}
+- p: [11, 12]
+  k: {t: '`', h: '$$mdi:apple-keyboard-command$$'}
